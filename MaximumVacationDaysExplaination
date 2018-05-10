@@ -1,0 +1,12 @@
+We take a bottom up approach to solve this problem. 
+So we have 2 matrix given to us - flights and days. 
+Now flights[i][j] could be either 1(flight present) or 0(no flights) 
+days[i][j] tell us that if we were in city i in week j, we would get days[i][j] number of vacation days. 
+
+So, after rephrasing the question we know how to approach this maximization problem. For each week, we need to be in the city that gives us the maximum vacation days. 
+This is basically what the problem wants us to find but we have an added constraint that is the flights. We need to pick these cities in such an order so that there are flights available to go from one city to another. 
+
+Now let's look at the coding approach I took. My dp table essentially keeps track of what I just explained above. 
+dp[c][w]  - tells us what is the maximum vacation days I get if I am at city c on week w. 
+
+Upon iteratively filling this table, we will reach out final entry which would give us the value for the last week in the last destination and that would be our solution. 
